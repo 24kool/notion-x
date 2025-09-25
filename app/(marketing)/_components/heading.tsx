@@ -12,7 +12,7 @@ export const Heading = () => {
             </h1>
             <div className="bg-primary/10 rounded-lg p-4 border border-primary/20 pt-5 pb-5">
                 <h3 className="text-base sm:text-xl md:text-2xl font-semibold text-primary pt-2 pb-2">
-                    Project Highlight
+                    Portfolio Project Highlight
                 </h3>
                 <p className="text-base sm:text-lg md:text-xl font-normal">
                     This is a full-stack Notion clone, built to showcase my skills in modern web development. Features include adding image and text blocks, real-time collaboration, and more.

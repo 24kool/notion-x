@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Notion-X",
+  title: "My Notion",
   description: "Clone of Notion",
   icons: {
     icon: "/x_logo.svg",
@@ -41,11 +42,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+        storageKey="my-notion-theme"
+        >
+          {children}
+        </ThemeProvider>
+        
       </body>
     </html>
   );

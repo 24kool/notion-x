@@ -18,7 +18,7 @@ export const Logo = () => {
             height={30}
             />
             <p className={cn("font-semibold", font.className)}>
-                Notion-X
+                Notion
             </p>
         </div>
     );
