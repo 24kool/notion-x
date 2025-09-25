@@ -1,9 +1,16 @@
 "use client";
 
+import { Spinner } from "@/components/spinner";
 import { Button } from "@/components/ui/button";
+import { SignInButton } from "@clerk/clerk-react";
+import { useConvexAuth } from "convex/react";
 import { ArrowRightIcon } from "lucide-react";
+import Link from "next/link";
 
 export const Heading = () => {
+    const { isAuthenticated, isLoading } = useConvexAuth();
+
+    
     return (
         <div className="max-w-3xl space-y-4">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold pt-5 pb-5">
@@ -19,10 +26,27 @@ export const Heading = () => {
                 </p>
                 <span className="text-sm text-muted-foreground block mt-2">by KC Kim</span>
             </div>
-            <Button>
+            {isLoading && (
+                <div className="w-full flex items-center justify-center">
+                <Spinner size="lg" />
+                </div>
+            )}
+            {isAuthenticated && !isLoading && (
+            <Button asChild>
+                <Link href="/documents">
                 Explore Notion-X
                 <ArrowRightIcon className="w-4 h-4 ml-2" />
+                </Link>
             </Button>
+            )}
+            {!isAuthenticated && !isLoading && (
+                <SignInButton mode="modal">
+                    <Button>
+                        Get Notion-X free
+                        <ArrowRightIcon className="w-4 h-4 ml-2" />
+                    </Button>
+                </SignInButton>
+            )}
         </div>
     );
 }
