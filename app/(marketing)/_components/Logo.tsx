@@ -16,6 +16,14 @@ export const Logo = () => {
             alt="Logo"
             width={30}
             height={30}
+            className="dark:hidden"
+            />
+            <Image 
+            src="/idea-dark.svg"
+            alt="Logo"
+            width={30}
+            height={30}
+            className="hidden dark:block"
             />
             <p className={cn("font-semibold", font.className)}>
                 Notion

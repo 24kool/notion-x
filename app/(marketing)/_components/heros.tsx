@@ -8,7 +8,13 @@ export const Heroes = () => {
                     <Image 
                     src="/team.svg"
                     fill
-                    className="object-contain"
+                    className="object-contain dark:hidden"
+                    alt="Team"
+                    />
+                    <Image 
+                    src="/team-dark.svg"
+                    fill
+                    className="object-contain hidden dark:block"
                     alt="Team"
                     />
                 </div>
